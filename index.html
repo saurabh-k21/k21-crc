@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>K21 Academy — Cloud Resume Challenge (Demo)</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: #111a2b;
+      --ink: #e6e8ee;
+      --muted: #a8b0c3;
+      --accent: #7c5cff;
+      --accent-2: #2dd4bf;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, sans-serif;
+      line-height: 1.6;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 20px; border-radius: 20px;
+      background: linear-gradient(90deg, rgba(124,92,255,0.2), rgba(45,212,191,0.2));
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 20px;
+    }
+    .logo { font-weight: bold; font-size: 22px; color: var(--accent-2); }
+    nav a {
+      color: var(--ink); margin: 0 10px; text-decoration: none;
+      font-weight: 500; transition: color 0.2s;
+    }
+    nav a:hover { color: var(--accent); }
+    .counter {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border-radius: 999px;
+      background: rgba(124,92,255,0.15); border: 1px solid rgba(124,92,255,0.35);
+      font-size: 14px;
+    }
+    .counter-number { font-weight: bold; }
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); }
+    h2 { color: var(--accent-2); margin-bottom: 12px; }
+    .pill {
+      display: inline-block; padding: 5px 10px; margin: 4px;
+      border-radius: 999px; background: rgba(255,255,255,0.08);
+      font-size: 13px;
+      transition: background 0.2s;
+    }
+    .pill:hover { background: var(--accent); color: white; }
+    .profile {
+      display: flex; align-items: center; gap: 20px;
+    }
+    .profile img {
+      width: 100px; height: 100px; border-radius: 50%;
+      border: 2px solid var(--accent-2); object-fit: cover;
+    }
+    footer {
+      margin-top: 30px; text-align: center; color: var(--muted); font-size: 13px;
+    }
+    .social a {
+      margin: 0 10px; color: var(--muted); text-decoration: none;
+    }
+    .social a:hover { color: var(--accent-2); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- HEADER -->
+    <header id="header">
+      <div class="logo">K21</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="counter-number">Loading.....</div>
+    </header>
+
+    <!-- TYPED TEXT PLACEHOLDER -->
+    <section>
+      <h2 id="typed"></h2>
+      <!-- <h3 id="typed_2"></h3> -->
+    </section>
+
+    <!-- ABOUT -->
+    <section class="card" id="about">
+      <div class="profile">
+        <img src="https://www.softkit.dev/static/images/Amazon_web_services_main_image_2_84c24de2df.png" alt="Profile photo">
+        <div>
+          <h2>About Me</h2>
+          <p>Hello! I’m <strong>Suchitra</strong>, an aspiring <em>AWS Cloud/DevOps Engineer</em>. 
+          This is my Cloud Resume Challenge demo — hosted on S3 with a visitor counter powered by AWS.</p>
+        </div>
+      </div>
+      <div>
+        <span class="pill">AWS</span>
+        <span class="pill">S3</span>
+        <span class="pill">CloudFront</span>
+        <span class="pill">Lambda</span>
+        <span class="pill">DynamoDB</span>
+        <span class="pill">DevOps</span>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="card" id="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li><strong>Cloud Resume Challenge</strong> — Static website on S3, visitor counter via Lambda + DynamoDB.</li>
+        <li><strong>Serverless Photo Processor</strong> — Resize images on S3 with Lambda, serve via CloudFront.</li>
+        <li><strong>CI/CD Pipeline</strong> — Automated deployments using GitHub Actions + AWS CodePipeline.</li>
+      </ul>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="card" id="skills">
+      <h2>Skills</h2>
+      <div>
+        <span class="pill">HTML</span>
+        <span class="pill">CSS</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill">AWS IAM</span>
+        <span class="pill">API Gateway</span>
+        <span class="pill">Terraform</span>
+        <span class="pill">Docker</span>
+        <span class="pill">Kubernetes</span>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="card" id="contact">
+      <h2>Contact</h2>
+      <p>Let’s connect! 🚀</p>
+      <div class="social">
+        <a href="#">LinkedIn</a> | 
+        <a href="#">GitHub</a> | 
+        <a href="mailto:your@email.com">Email</a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      © <span id="year"></span> K21 Academy — Cloud Resume Challenge Demo
+    </footer>
+  </div>
+
+  <!-- External JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="index.js"></script>
+</body>
+</html>
